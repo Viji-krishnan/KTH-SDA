@@ -1,4 +1,4 @@
-package com.util.todo;
+package util.todo;
 
 import java.io.File;
 import java.io.FileNotFoundException;

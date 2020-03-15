@@ -1,4 +1,4 @@
-package com.util.todo;
+package java.todo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -89,7 +89,7 @@ public class Main {
     }
 
     // Main method
-    public static void main(String[] args) throws IOException {
+    public static void main (String[] args) throws IOException {
 
         Main toDo = new Main();
         toDo.welcome();
