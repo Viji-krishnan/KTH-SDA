@@ -88,7 +88,7 @@ public class AppMain {
         }
     }
 
-    // Main method
+    // Main method to run the program
     public static void main (String[] args) throws IOException {
 
         AppMain toDo = new AppMain();
