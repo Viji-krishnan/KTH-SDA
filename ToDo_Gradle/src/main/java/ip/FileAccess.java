@@ -15,9 +15,12 @@ import java.util.ArrayList;
 
 public class FileAccess {
 
-    //  TaskList taskList = new TaskList();
-    //  LoadArrayList loadArrayList = new LoadArrayList();
     File file = new File("TaskList.txt");
+
+    /**
+     *
+     * @param arrayList This list contains the data to be written in the file
+     */
 
     public void save(ArrayList<Task> arrayList) {
         try {
@@ -25,7 +28,6 @@ public class FileAccess {
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            //  for (Task task : loadArrayList.arrayList) {
             for (Task task : arrayList) {
                 bufferedWriter.write(task.toString() + "\n");
             }
@@ -36,9 +38,5 @@ public class FileAccess {
         }
     }
 
-    //The createdDate field is added automatically when the user adds the tasks
-       /* public void addCreatedDateField () {
-            LocalDate createdDate = LocalDate.now();
-        } */
 }
 

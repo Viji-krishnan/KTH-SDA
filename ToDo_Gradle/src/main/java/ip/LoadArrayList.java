@@ -8,11 +8,12 @@ import java.util.ArrayList;
 
 /**
  * This class is to load the initial array list by reading the file content
- * This will be executed whenever the application starts
+ * This will be executed as a first step when the application starts
  *
  * @author Viji Radhakrishnan
  * @version 1.0
  */
+
 public class LoadArrayList {
 
     ArrayList<Task> arrayList;

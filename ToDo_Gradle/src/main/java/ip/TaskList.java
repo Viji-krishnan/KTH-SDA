@@ -10,13 +10,16 @@ import java.time.LocalDate;
  */
 public class TaskList {
 
-    FileAccess fileAccess;
+    private FileAccess fileAccess;
     LoadArrayList loadArrayList;
 
     public TaskList() {
         loadArrayList = new LoadArrayList();
     }
 
+    /**
+     * @param task The new task details which the user wants to add it
+     */
     public void addTask(Task task) {
 
         //To add the new task in the arrayList
@@ -27,6 +30,12 @@ public class TaskList {
         fileAccess.save(loadArrayList.arrayList);
     }
 
+    /**
+     *
+     * @param selected The chosen task index which the user wants to edit
+     * @param editField The chosen task field among TaskDescription, DueDate, Category or Status
+     * @param newValue The new string value entered by the user
+     */
     public void editTask(Task selected, int editField, String newValue) {
 
         switch (editField) {
@@ -51,10 +60,6 @@ public class TaskList {
 
         fileAccess = new FileAccess();
         fileAccess.save(loadArrayList.arrayList);
-        // fileAccess.save();
-        // saveFile();
-        //   System.out.println("Please check the updated details...");
-        //  System.out.println(selected.toString2());
     }
 
     public void printTasks() {
@@ -62,20 +67,18 @@ public class TaskList {
         for (int i = 0; i < loadArrayList.arrayList.size(); i++) {
             System.out.println("Task Index (" + i + ") :" + " " + loadArrayList.arrayList.get(i));
         }
-
     }
 
+    /**
+     * @param index The index of the TaskList which the user wants to delete
+     */
     public void removeTask(int index) {
-        //  printTasks();
-        // System.out.println("Enter the index");
-        // int index = Integer.parseInt(scanner.nextLine());
+
         fileAccess = new FileAccess();
 
         loadArrayList.arrayList.remove(index);
-        //saveFile();
 
         fileAccess.save(loadArrayList.arrayList);
-        // System.out.println("Result from TaskList class -- removed");
     }
 
 }

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
- * This class is used to get the input from the user using Keyboard Scanner Class
+ * This class is used to get the input from the user using Keyboard Scanner Class & InputStream Reader
  *
  * @author Viji Radhakrishnan
  * @version 1.0
@@ -15,13 +15,12 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    // LoadArrayList loadArrayList = new LoadArrayList();
-    TaskList taskList;
-    Task task;
-    Scanner scanner = new Scanner(System.in);
-    InputStreamReader ir = new InputStreamReader(System.in);
-    BufferedReader br = new BufferedReader(ir);
-    LocalDate dueDate;
+    private TaskList taskList;
+    private Task task;
+    private Scanner scanner = new Scanner(System.in);
+    private InputStreamReader ir = new InputStreamReader(System.in);
+    private BufferedReader br = new BufferedReader(ir);
+    private LocalDate dueDate;
 
     //This is the Welcome message when the user starts the application
     public void welcome() {
@@ -35,7 +34,10 @@ public class UserInterface {
         System.out.println(">> ");
     }
 
-    //This is the user choice to select among view tasks, add, edit or delete it
+    /**
+     * This is the user choice to select among view tasks, add, edit or delete it
+     * @throws IOException user input exception
+     */
     public void userChoice() throws IOException {
         taskList = new TaskList();
 
@@ -45,10 +47,10 @@ public class UserInterface {
         if (choice == 1) {
 
             System.out.println("Kindly check the below list of tasks");
-            System.out.println("-------------------------------------");
-            System.out.println("Task Index:  " + "Task Description: " + "-*-" + "DueDate: " + "-*-" + "Category" + "-*-" + "Status");
+            System.out.println("--------------------------------------------------");
+            System.out.println("Task Index : " + " Task Description " + "-*-" + " DueDate " + "-*-" + " Category " + "-*-" + " Status ");
             taskList.printTasks();
-            System.out.println("-------------------------------------");
+            System.out.println("---------------------------------------------------");
 
         } else if (choice == 2) {
 
@@ -60,7 +62,7 @@ public class UserInterface {
             System.out.println("Enter the lead time to finish the task in the following format yyyy-mm-dd");
 
             String dueDateTemp = scanner.nextLine();
-            LocalDate dueDate = LocalDate.parse(dueDateTemp);
+            dueDate = LocalDate.parse(dueDateTemp);
 
             System.out.println("Enter the Category of the Task ...");
             String category = scanner.nextLine();
@@ -107,11 +109,15 @@ public class UserInterface {
             taskList.removeTask(index);
             System.out.println("Task has been removed successfully");
 
-        }else{
+        } else {
             System.out.println("Invalid Input : The choice must be among 1 to 4 ");
         }
     }
 
+    /**
+     * This method returns whether the user want to perform any other operation or quit
+     * @throws IOException user input exception
+     */
     public void nextAction() throws IOException {
         System.out.println("Do you want to continue ? Type Yes OR No");
         String str = br.readLine().toLowerCase();

@@ -2,12 +2,18 @@ package ip;
 
 import java.time.LocalDate;
 
+/**
+ * This task class defines the task parameters, also getters and setters
+ * @author Viji Radhakrishnan
+ * @version 1.0
+ */
+
 public class Task {
 
-    String taskDescription;
-    LocalDate dueDate;
-    String category;
-    String status;
+   private String taskDescription;
+   private LocalDate dueDate;
+   private String category;
+   private String status;
 
     public Task(String taskDescription, LocalDate dueDate, String category, String status) {
         this.taskDescription = taskDescription;
